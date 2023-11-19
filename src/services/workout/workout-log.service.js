@@ -7,10 +7,11 @@ const LOG = `${WORKOUTS}/log`
 class workoutLogService {
   async getById(id) {
     return $axios.get(`${LOG}/${id}`)
-}
+  }
 
   async create(workoutId) {
-    return $axios.post(`${LOG}/${workoutId}`)
+    const res = await $axios.post(`${LOG}/${workoutId}`)
+    return res
   }
 
   async complete(id) {

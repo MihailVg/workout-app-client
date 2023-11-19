@@ -6,8 +6,8 @@ import WorkoutItem from './WorkoutItem'
 import { useWorkouts } from './useWorkouts'
 
 const ListWorkouts = () => {
-  const {data, error, isLoading, isSuccess, isSuccessMutate, mutate} = useWorkouts()
-
+  const {data, isSuccess, mutate, isLoading, isSuccessMutate, error} = useWorkouts()
+  
   return (
   <>
     <Layout bgImage='/images/workout-bg.jpg' heading='Workout list' />
@@ -16,7 +16,7 @@ const ListWorkouts = () => {
       className='wrapper-inner-page'
       style={{paddingLeft: 0, paddingRight: 0}}
     >
-      {error && <Alert type='error' text={error}/>}
+      {error && <Alert type='error' text={error.message}/>}
       {isSuccessMutate && <Alert text='Workout log created'/>}
       {isLoading && <Loader />}
       {isSuccess && (

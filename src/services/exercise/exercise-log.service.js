@@ -1,4 +1,5 @@
 import { $axios } from '../../api'
+
 import { EXERCISES } from './exercise.service'
 
 const LOG = `${EXERCISES}/log`
@@ -12,7 +13,7 @@ class exerciseLogService {
     return $axios.post(`${LOG}/${exerciseId}`)
   }
 
-  async update(timeId, body) {
+  async updateTime(timeId, body) {
     return $axios.put(`${LOG}/time/${timeId}`, body)
   }
 

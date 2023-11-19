@@ -46,7 +46,7 @@ const Workout = () => {
           {workoutLog?.exerciseLogs?.map((exerciseLog, index) => (
             <Fragment key={exerciseLog.id}>
               <ExerciseItem exerciseLog={exerciseLog}/>
-              {index % 2 !== 0 && index !== workoutLog.exerciseLog.length - 1 && 
+              {index % 2 !== 0 && index !== workoutLog.exerciseLogs.length - 1 && 
               (<div className={styles.line}/>)}
             </Fragment>
           ))}
