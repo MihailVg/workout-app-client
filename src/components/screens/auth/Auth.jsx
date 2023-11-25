@@ -1,20 +1,15 @@
-import { useMutation } from '@tanstack/react-query'
-import { useEffect, useState } from "react"
-import { useForm } from "react-hook-form"
 import Button from "../../ui/button/Button"
 import Field from "../../ui/field/Field"
 import Loader from "../../ui/Loader"
 
-import authService from "../../../services/auth.service"
 import Layout from "../../layout/Layout"
 
 import styles from './Auth.module.scss'
-import { useAuth } from '../../../hooks/useAuth'
-import { useNavigate } from 'react-router-dom'
+
 import { useAuthPage } from './useAuthPage'
 
 const Auth = () => {
-  const {errors, handleSubmit, isLoading, register, onSubmit, setType} = useAuthPage()
+  const {errors, handleSubmit, isLoading, onSubmit, register, setType} = useAuthPage()
 
   return (
   <>

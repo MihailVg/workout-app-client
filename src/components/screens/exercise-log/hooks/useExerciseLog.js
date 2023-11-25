@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import exerciseLogService from '../../../../services/exercise/exercise-log.service'
@@ -16,9 +16,16 @@ export const useExerciseLog = () => {
     queryFn: () => exerciseLogService.getById(id), 
     select: ({ data }) => data,
     onSuccess(data) {
+      console.log(data);
       if (data?.times?.length) setTimes(data.times)
     }
   })
+
+  useEffect(() => {
+    if (!isLoading) {
+      setTimes(exerciseLog.times); 
+    }
+  }, [isLoading])
 
 	const { errorChange, updateTime } = useUpdateLogTime()
 
@@ -27,7 +34,6 @@ export const useExerciseLog = () => {
 			if (time.id === timeId) {
 				return { ...time, [key]: value }
 			}
-
 			return time
 		})
 

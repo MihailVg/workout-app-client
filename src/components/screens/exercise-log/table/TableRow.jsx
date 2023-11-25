@@ -39,7 +39,7 @@ const TableRow = ({ item, getState, onChangeState, toggleTime }) => {
 			<div key={`Completed ${item.id}/${item.isCompleted}`}>
 				<img
 					src={
-						getState(item.id, 'isCompleted')
+						item.isCompleted
 							? '/images/exercises/check-completed.svg'
 							: '/images/exercises/check.svg'
 					}
